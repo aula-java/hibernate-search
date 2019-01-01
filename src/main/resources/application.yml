@@ -1,0 +1,30 @@
+spring:
+  thymeleaf:
+    prefix: classpath:/templates
+    cache: false
+  mvc:
+    favicon:
+      enabled: true
+    locale: pt_BR
+  h2.console:
+    enabled: true
+    path: /db
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: create-drop
+    properties.hibernate.search:
+      #5.0
+      default:
+        directory_provider: filesystem
+        indexBase: ../lucene/indexes/meu-indice
+      #6.0
+#      backends.myBackend:
+#        type: org.hibernate.search.backend.lucene.impl.LuceneBackendFactory
+#        lucene:
+#          directory_provider: local_directory
+#          root_directory: ../lucene/indexes/meu-indice-2
+#      indexes.default.backend: myBackend
+  datasource:
+    url: jdbc:h2:~/dev;DB_CLOSE_ON_EXIT=FALSE
+    platform: h2
